@@ -1,0 +1,14 @@
+{
+  "name": "ai-gym-tracker",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently -n server,client -c cyan,green \"bun run --watch server/src/index.ts\" \"npm run dev --prefix client\"",
+    "build": "cd client && npm run build",
+    "start": "cd server && bun run src/index.ts",
+    "install:all": "cd server && bun install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

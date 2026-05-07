@@ -8,10 +8,11 @@
     "start": "bun run src/index.ts"
   },
   "dependencies": {
-    "express": "^5.1.0",
+    "@ai-sdk/gateway": "^3.0.110",
+    "@ai-sdk/google": "^3.0.68",
+    "ai": "^6.0.175",
     "cors": "^2.8.5",
-    "ai": "^4.3.16",
-    "@ai-sdk/google": "^1.2.18",
+    "express": "^5.1.0",
     "zod": "^3.25.0"
   },
   "devDependencies": {

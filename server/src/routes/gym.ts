@@ -109,7 +109,7 @@ router.post('/generate-plan', async (req: Request, res: Response) => {
         });
 
         const { object } = await generateObject({
-            model: gateway('meta/llama-3.1-8b'),
+            model: gateway('google/gemini-2.0-flash'),
             schema: planSchema,
             prompt: `Create a personalised fitness plan for someone with the following profile:
 - Goal: ${goal}
@@ -119,7 +119,9 @@ router.post('/generate-plan', async (req: Request, res: Response) => {
 
 Generate exactly ${daysPerWeek} training sessions that are logically sequenced for the week.
 Ensure the plan name is motivating and the description is inspiring.
-Each session title should indicate the day number and focus area.`,
+Each session title should indicate the day number and focus area.
+
+IMPORTANT: Respond strictly with a single JSON object. Do not output an array.`,
         });
 
         const planId = crypto.randomUUID();
@@ -231,7 +233,7 @@ Tone: Energetic, motivating, and professional.`;
 
     try {
         const result = streamText({
-            model: gateway('meta/llama-3.1-8b'),
+            model: gateway('google/gemini-2.0-flash'),
             prompt,
         });
 
